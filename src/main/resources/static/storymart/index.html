@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StoryMart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style/all.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+</head>
+<body>
+<style>
+    .title-page {
+        background: linear-gradient(180deg, #9AB6F0 0%, #6AADF0 48.96%, #F2F8FD 100%);
+    }
+
+    .header-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .container-title {
+        width: 90%;
+        margin-left: auto;
+    }
+
+    .header-title-text {
+        color: #152731;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
+        margin-right: 40px;
+    }
+
+    .header-title-date {
+        background: #FFC328;
+        border-radius: 0px 0px 0px 100px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .header-title-date p:first-child {
+        color: #fff;
+        font-size: 22px;
+        margin-bottom: 0 !important;
+    }
+
+    .header-title-date p:last-child {
+        margin-top: 5px;
+        color: #152731;
+        font-size: 18px;
+        margin-bottom: 0 !important;
+    }
+
+    .title-vector {
+        padding: 250px 0;
+    }
+
+    .h1-title {
+        color: #fff;
+        font-size: 72px;
+        width: 50%;
+        line-height: 80px;
+    }
+
+    .title-vector p {
+        margin-top: 20px;
+        color: #152731;
+        font-size: 32px;
+        width: 50%;
+        line-height: 40px;
+    }
+
+    .vector {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 95%;
+        margin-left: auto;
+    }
+
+    .vector-img {
+        width: 75%;
+        margin-right: 20px;
+    }
+
+    .vector-img img {
+        width: 100%;
+    }
+
+    .vector-text {
+        transform: rotate(270deg);
+        transform-origin: right bottom;
+        position: absolute;
+        right: 0;
+        bottom: -430px;
+        display: flex;
+        align-items: center;
+        width: 25%;
+        /* margin-right: 20px; */
+    }
+
+    .vector-text img {
+        transform: rotate(90deg);
+        margin: 0 200px;
+    }
+
+    .vector-text a {
+        font-weight: 700;
+        font-size: 32px;
+        color: #000;
+    }
+
+    .vector-text p {
+        font-weight: 700;
+        font-size: 32px;
+        color: #3E4348;
+    }
+
+    .vector-text span {
+        color: #ffffff;
+    }
+
+    .dot {
+        border-radius: 100%;
+        background-color: #fff;
+        margin-right: 5px;
+        margin-left: 5px;
+
+    }
+
+    @media screen and (min-width: 1920px) {
+        .header-title-text {
+            font-size: 48px;
+            line-height: 54px;
+        }
+
+        .header-title-date p {
+            font-size: 30px !important;
+        }
+
+        .h1-title {
+            font-size: 90px;
+            line-height: 96px;
+        }
+
+        .title-vector p {
+            font-size: 42px;
+            line-height: 46px;
+        }
+
+    }
+
+    .header-chart-inner {
+        background: linear-gradient(180deg, #FFB877 23.96%, #FFC896 48.44%, #FFFFFF 100%);
+    }
+
+    .logo-title-chart {
+        display: flex;
+        margin-top: -10%;
+    }
+
+    .logo-title-chart h3 {
+        color: #152731;
+        font-size: 68px;
+        line-height: 72px;
+        font-weight: 700;
+    }
+
+    .logo-title-chart h4 {
+        color: #152731;
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: 400;
+        width: 20%;
+        margin-top: 1%;
+        margin-left: 2%;
+    }
+
+    .chart-page-title {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 50px 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chart-page-title2 {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: -5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chart-round {
+        width: 35%;
+        padding: 10px 50px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(180deg, #FFB877 0%, #FFC691 100%);
+        border-radius: 150px;
+    }
+
+    .chart-round2 {
+        width: 40%;
+        padding: 10px 50px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 150px;
+    }
+
+    .chart-round h3 {
+        font-size: 80px;
+        font-weight: 700;
+        color: #fff;
+        margin: 0;
+    }
+
+    .chart-round p {
+        font-size: 24px;
+        color: #fff;
+        margin: 0 0 0 10px;
+
+    }
+
+    .chart-round2 h3 {
+        font-size: 80px;
+        font-weight: 700;
+        color: #152731;
+        margin: 0;
+    }
+
+    .chart-round2 p {
+        font-size: 24px;
+        color: #152731;
+        margin: 0 0 0 10px;
+
+    }
+
+    .chart-img {
+        width: 60%;
+    }
+
+    .chart-img img {
+        width: 100%;
+    }
+
+    .chart-img2 {
+        width: 55%;
+    }
+
+    .chart-img2 img {
+        width: 100%;
+
+    }
+
+    .chart-city-num {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .chart-city-num2 {
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .chart-city-num3 {
+        margin-top: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .chart-grey-bg {
+        padding: 20px 0 0px;
+        background-color: #EAEEF1;
+    }
+
+    .chart-vol-price {
+        display: flex;
+
+    }
+
+    .chart-vol {
+        padding: 0 40px;
+    }
+
+    .chart-vol span {
+        font-size: 20px;
+        color: #9A9B9C;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+    .chart-vol p {
+        font-size: 32px;
+        color: #FFB877;
+        border-right: 2px solid #9A9B9C;
+        padding-right: 40px;
+    }
+
+
+    .chart-price span {
+        font-size: 20px;
+        color: #9A9B9C;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+    .chart-price p {
+        font-size: 32px;
+        color: #152731;
+    }
+
+    .chart-str p {
+        font-size: 36px;
+        color: #FFB877;
+    }
+
+    .chart-str span {
+        font-size: 20px;
+        color: #9A9B9C;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+    .chart-city-num2 {
+        display: flex;
+    }
+
+    .chart-str2 span {
+        font-size: 20px;
+        color: #9A9B9C;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+
+    .chart-str2 p {
+        font-size: 24px;
+        font-weight: normal;
+    }
+
+    .str1 {
+        width: 40%;
+    }
+
+    .str2 {
+        width: 60%;
+    }
+
+    .chart-obj {
+        display: flex;
+        width: 40%;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .chart-obj p {
+        color: #FFB877;
+        font-size: 32px;
+        margin-right: 25%;
+    }
+
+    .chart-obj span {
+        color: #000;
+    }
+
+    .chart-obj p:nth-child(2) {
+        color: #9A9B9C;
+        font-size: 16px;
+    }
+
+    .chart-wrap {
+        display: flex;
+        margin: 50px 0;
+    }
+
+    .chart-p {
+        width: 60%;
+        font-size: 14px;
+        color: #9A9B9C;
+    }
+
+
+    .chart-bars-block {
+        width: 95%;
+        border-bottom-right-radius: 30px;
+        border-top-right-radius: 30px;
+        box-shadow: 15px 15px 60px #EAEEF1;
+        padding: 50px 0;
+        margin: 50px 0;
+    }
+
+    .chart-bar-title {
+        margin-left: 12%;
+        margin-right: 7%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .chart-bar {
+        padding: 0 100px;
+    }
+
+    .chart-values {
+        display: flex;
+        margin-left: 5%;
+        justify-content: space-between;
+    }
+
+    .chart-values p {
+        font-size: 12px;
+        /*font-style: bold;*/
+        margin: 0 0 2px;
+        font-weight: 700;
+    }
+
+    .chart-values p:nth-child(1) {
+        color: #ffb877;
+    }
+
+    .content {
+        background-image: url('assets/content-bh.png');
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 100px 0;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dot {
+        background: #71AEF0;;
+        margin: 0 15px;
+    }
+
+    .dot-4 {
+        width: 5px;
+        height: 5px;
+    }
+
+    .dot-3 {
+        width: 7px;
+        height: 7px;
+    }
+
+    .dot-2 {
+        width: 10px;
+        height: 10px;
+    }
+
+    .dot-1 {
+        width: 15px;
+        height: 15px;
+    }
+
+    .dots {
+        display: flex;
+        align-items: center;
+        margin: 0 30px;
+    }
+
+    .header-content--left h6 {
+        color: #152731;
+        font-size: 46px;
+        line-height: 54px;
+        font-weight: 700;
+    }
+
+    .header-content--left p {
+        color: #152731;
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 400;
+    }
+
+    .header-content--right p:first-child {
+        color: #71AEF0;
+        font-size: 42px;
+        line-height: 46px;
+        font-weight: 700;
+    }
+
+    .header-content--right p:last-child {
+        color: #424242;
+
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 400;
+    }
+
+    .content h1 {
+        margin-top: 100px;
+        color: #152731;
+        font-size: 58px;
+        line-height: 64px;
+        font-weight: 700;
+    }
+
+    .content-items {
+        margin-top: 50px;
+    }
+
+    .content-item {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .content-item h4 {
+        color: #152731;
+        font-size: 42px;
+        line-height: 48px;
+        font-weight: 700;
+    }
+
+    .content-item span {
+        color: #152731;
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 400;
+    }
+
+    .more-content {
+        display: flex;
+        align-items: center;
+        margin-bottom: 150px;
+        margin-top: 400px;
+    }
+
+    .more-content p {
+        color: #9A9B9C;
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 400;
+    }
+
+    .more-content a {
+        font-weight: 400;
+        font-size: 32px;
+        color: #000;
+    }
+
+    .more-content span {
+        color: #71AEF0;
+    }
+
+    .header-count-inner {
+        background: linear-gradient(180deg, #00C136 0%, #6DFFCB 48.44%, #FFFFFF 100%);
+    }
+
+    .logo-title-count {
+        position: absolute;
+        top: 0;
+        margin: 50px 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo-title-count h3 {
+        color: #152731;
+        font-size: 68px;
+        line-height: 72px;
+        font-weight: 700;
+    }
+
+    .logo-title-count h4 {
+        color: #152731;
+        font-size: 48px;
+        line-height: 52px;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+
+    .logo-title-count h3 > span {
+        color: #20D3CB;
+    }
+
+    .count-labels {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .color {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+    }
+
+    .color-finished {
+        background: #00C136;
+    }
+
+    .color-progress {
+        background: #9A9B9C;;
+    }
+
+    .count-label--item {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .count-label--item span {
+        color: #152731;
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+
+    .canvas-div {
+        display: flex;
+        position: relative;
+        margin-top: 100px;
+        width: 100%;
+        height: 400px;
+
+    }
+
+    .pieNums {
+        position: absolute;
+        left: 17.5%;
+        text-align: center;
+        margin-top: 45px;
+    }
+
+    .pieNum {
+        margin: 0 0 5px;
+    }
+
+    .pieNum p:nth-child(1) {
+        font-size: 14px;
+        color: #9A9B9C;
+        margin: 0px 0;
+        font-weight: 200;
+    }
+
+    .pieNum p:nth-child(2) {
+        font-size: 28px;
+        color: #000;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    .two p:nth-child(2) {
+        color: #00C136;
+    }
+
+    .three p:nth-child(2) {
+        color: #9A9B9C;
+    }
+
+    .bar-chart-canvas {
+        width: 65%;
+    }
+
+    #myChart {
+        position: absolute;
+        left: -38%;
+    }
+
+    #bar-chart {
+        position: absolute;
+        left: 35%;
+    }
+
+    .chart-numbers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bar-img {
+        width: 20%;
+        height: 10px;
+        margin: 0 40px;
+    }
+
+    .bar-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .chart-number p {
+        font-size: 60px;
+        line-height: 74px;
+        font-weight: 700;
+    }
+
+    .chart-number span {
+        font-size: 42px;
+        line-height: 50px;
+        font-weight: 700;
+    }
+
+    .objects-block {
+        width: 100%;
+        padding: 100px 0 0;
+    }
+
+    .count-title {
+        width: 80% !important;
+    }
+
+    .progress-block {
+        width: 100%;
+        padding: 50px 0 100px;
+        box-sizing: border-box;
+
+    }
+
+    .pr-title {
+        display: flex;
+        width: 44%;
+        padding: 10px 0;
+        border-bottom: 2px solid #eaeef1;
+        margin-bottom: 40px;
+    }
+
+    .progress-title {
+        display: flex;
+
+    }
+
+    .pr-title:nth-child(2) {
+        margin-left: 6%;
+    }
+
+    .pr-title p {
+        /*width: ;*/
+        font-size: 16px;
+        font-weight: 400;
+        color: #9A9B9C;
+    }
+
+    .pr-title p:nth-child(1) {
+        width: 31%;
+    }
+
+    .pr-title p:nth-child(2) {
+        width: 27%;
+    }
+
+    .pr-title p:nth-child(3) {
+        width: 31%;
+    }
+
+    .pr-title p:nth-child(4) {
+        width: 11%;
+    }
+
+    .progress-table1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .progress-line {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        align-items: flex-end;
+        margin-bottom: 40px;
+    }
+
+    .progress-line p {
+        margin: 0;
+        line-height: 1;
+        width: 100%;
+        font-size: 24px;
+    }
+
+
+    .progress-wrap1 {
+        width: 100%;
+        margin: 0 10px 0 40px;
+        color: #636363;
+    }
+
+    .progress-wrap2 {
+        width: 100%;
+        margin: 0 40px 0 10px;
+        color: #00C136;
+    }
+
+    .progress-wrap1 .progress-bar {
+        background-color: #636363;
+    }
+
+    .progress-wrap2 .progress-bar {
+        background-color: #00C136;
+    }
+
+    .progress-wrap1 p {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .progress-wrap2 p {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .progress-sum {
+        font-size: 32px !important;
+    }
+
+    .footer-count {
+        padding: 50px 0 100px;
+    }
+
+    .progress {
+        border-radius: .6rem !important;
+    }
+
+    .progress-bar {
+        border-radius: .6rem !important;
+    }
+
+    .pr-bl2 {
+        padding: 40px 0 0px !important;
+    }
+
+    .pr-bl3 {
+        padding: 40px 0 0px !important;
+        margin-top: 12%;
+    }
+
+    .pr-title2 {
+        display: flex;
+        width: 44%;
+        padding: 10px 0;
+        border-bottom: 2px solid #eaeef1;
+        margin-bottom: 40px;
+    }
+
+    .pr-title2:nth-child(2) {
+        margin-left: 6%;
+    }
+
+    .pr-title2 p {
+        /*width: ;*/
+        font-size: 16px;
+        font-weight: 400;
+        color: #9A9B9C;
+    }
+
+    .pr-title2 p:nth-child(1) {
+        width: 38%;
+    }
+
+    .pr-title2 p:nth-child(2) {
+        width: 44%;
+    }
+
+    .progress-wrap3 {
+        width: 100%;
+        margin: 0 50px 0 30px;
+        color: #636363;
+
+    }
+
+    .progress-wrap3 .progress-bar {
+        background-color: #636363;
+    }
+
+    .progress-wrap3 p {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .top {
+        padding: 20px 0;
+    }
+
+    .header-bg img {
+        height: 50%;
+        width: 100%;
+    }
+
+    .logo-title {
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo-title img {
+        width: 40%;
+    }
+
+    .header-block {
+        position: relative;
+
+    }
+
+    .header-inner {
+        background: linear-gradient(180deg, #20D3CB 0%, #FFFFFF 100%);
+    }
+
+    .logo-title h3 {
+        color: #152731;
+        font-size: 68px;
+        line-height: 72px;
+        font-weight: 700;
+    }
+
+    .logo-title h3 > span {
+        color: #20D3CB;
+    }
+
+    .logo-text {
+        margin-left: 40px;
+    }
+
+    .logo-text h4 {
+        color: #152731;
+        font-size: 56px;
+        line-height: 60px;
+        font-weight: 700;
+    }
+
+    .logo-text p {
+        color: #152731;
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 400;
+    }
+
+    .bar-line {
+        width: 40px;
+    }
+
+    .bar-item--text {
+        height: 40px;
+        width: 1000px;
+        margin-bottom: 60px;
+        margin-left: 20px;
+    }
+
+    .bar-0 {
+        height: 1600px;
+        background: #FFD056;
+    }
+
+    .bar-1 {
+        height: 1500px;
+        background: #99E7AB;
+    }
+
+    .number-1 {
+        color: #FFD056;
+    }
+
+    .bar-2 {
+        height: 1400px;
+        background: #11D0CF;
+    }
+
+    .number-2 {
+        color: #99E7AB;
+    }
+
+    .bar-3 {
+        height: 1300px;
+        background: #152731;
+    }
+
+    .number-3 {
+        color: #11D0CF;
+    }
+
+    .bar-4 {
+        height: 1200px;
+        background: #2D2F32;
+    }
+
+    .number-4 {
+        color: #152731;
+    }
+
+    .bar-5 {
+        height: 1100px;
+        background: #3A3C40;
+    }
+
+    .number-5 {
+        color: #2D2F32;
+    }
+
+    .bar-6 {
+        height: 1000px;
+        background: #515357;
+    }
+
+    .number-6 {
+        color: #3A3C40;
+    }
+
+    .bar-7 {
+        height: 900px;
+        background: #5E6167;
+    }
+
+    .number-7 {
+        color: #515357;
+    }
+
+    .bar-8 {
+        height: 800px;
+        background: #767A81;
+    }
+
+    .number-8 {
+        color: #5E6167;
+    }
+
+    .bar-9 {
+        height: 700px;
+        background: #9A9B9C;
+    }
+
+    .number-9 {
+        color: #767A81;
+    }
+
+    .bar-item {
+        width: 40px;
+    }
+
+    .number-10 {
+        color: #9A9B9C;
+    }
+
+    .bar-item:last-child {
+        margin-bottom: 600px;
+    }
+
+    .bar-rest {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .bar-items {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .bar-item-all {
+        display: flex;
+    }
+
+    .bar-number {
+        font-size: 60px;
+        line-height: 64px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+
+    .bar-item-top {
+        color: #152731;
+        font-size: 42px;
+        line-height: 47px;
+        font-weight: 700;
+    }
+
+    .bar-item-top {
+        margin-bottom: 5px;
+    }
+
+    .bar-item-text--inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .bar-item--text:last-child {
+        margin-bottom: 500px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .bar-item-text-right {
+        margin-left: 20px;
+        /* width: 100%; */
+        width: 650px;
+    }
+
+    .footer-top {
+        margin-top: 400px;
+    }
+
+    /* http://meyerweb.com/eric/tools/css/reset/
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        text-decoration: none;
+        box-sizing: border-box;
+
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    body {
+        line-height: 1;
+        font-family: 'Lato', sans-serif;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    blockquote, q {
+        quotes: none;
+    }
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .line {
+        border: 2px solid #11D0CF;
+        width: 20%;
+        margin: 20px 0;
+    }
+
+    .footer p:first-child {
+        color: #424242;
+
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+
+    .footer p:last-child {
+        color: #9A9B9C;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+
+    .footer {
+        width: 80%;
+    }
+
+    .header p {
+        padding-top: 40px;
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    .header p > span {
+        color: #fff
+    }
+
+
+</style>
+<section class="title-page">
+    <div class="container-title">
+        <div class="header-title">
+            <p class="header-title-text">Разработано на основании автоматического анализа KENML смет системой GENRO
+                (АО Институт цифровой техники и технологий)</p>
+            <div class="header-title-date">
+                <p>Декабрь</p>
+                <p>Издание №1</p>
+            </div>
+        </div>
+        <div class="title-vector">
+            <h1 class="h1-title">
+                Потребность
+                строительного
+                рынка на 2020г.
+            </h1>
+            <p>2020- 2022 год.</p>
+        </div>
+    </div>
+    <div class="vector">
+        <div class="vector-img">
+            <img alt="vector" src="assets/page-1-vector.png">
+        </div>
+        <div class="vector-text">
+            <p>Подробнее на </p>
+            <div>
+                <img src="assets/dots.png">
+            </div>
+            <a target="_blank" href="storymart.kz">StroyMart.<span>kz</span></a>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-content--left">
+                <h6>Потребность
+                    строительного рынка</h6>
+                <p>
+                    2020 - 2022 год
+                </p>
+            </div>
+            <div class="header-content--right">
+                <p>Декабрь </p>
+                <p>Издание 1</p>
+            </div>
+
+        </div>
+        <h1>Оглавление</h1>
+        <div class="content-items">
+            <div class="content-item">
+                <h4>6</h4>
+                <div class="dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                </div>
+                <span>Топ 10 стройматериалов</span>
+            </div>
+            <div class="content-item">
+                <h4>6</h4>
+                <div class="dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                </div>
+                <span>Топ 10 стройматериалов</span>
+            </div>
+            <div class="content-item">
+                <h4>6</h4>
+                <div class="dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-4"></div>
+                </div>
+                <span>Топ 10 стройматериалов</span>
+            </div>
+        </div>
+        <div class="more-content">
+            <p>Подробнее на </p>
+            <div class="dots">
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-4"></div>
+                <div class="dot dot-3"></div>
+                <div class="dot dot-2"></div>
+                <div class="dot dot-1"></div>
+            </div>
+            <a target="_blank" href="http://www.storymart.kz">StroyMart.<span>kz</span></a>
+        </div>
+
+        <footer class="footer">
+            <p>Потребность строительного рынка на 2020-2021гг.</p>
+            <div class="line"></div>
+            <p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой техники
+                и технологий)</p>
+        </footer>
+    </div>
+</section>
+<section class="top">
+    <div class="header-inner">
+        <div class="container">
+            <header class="header">
+                <p>StroyMart.<span>kz</span></p>
+            </header>
+            <div class="header-block">
+                <div class="header-bg">
+                    <img src="assets/header-bg.png">
+                </div>
+                <div class="logo-title">
+                    <div>
+                        <img src="assets/logo.png">
+                    </div>
+                    <h3>Топ <span>10</span></h3>
+                    <div class="logo-text">
+                        <h4>стройматериалов </h4>
+                        <p>Доля на рынке стройматериалов в %</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="transform: rotate(-180deg);background: linear-gradient(180deg, #FFFFFF 0.34%, rgba(255, 255, 255, 0) 27.8%); padding: 20px 0;"></div>
+    </div>
+    <div class="container">
+
+
+        <div class="bar-items">
+            <div class="bar-item">
+                <div class="bar-item--text">
+                    <div>
+                        <p class="bar-item-top"></span></p>
+                    </div>
+
+                </div>
+                <div class="bar-line bar-0"></div>
+            </div>
+            <div id="bar-items" class="bar-rest">
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+<section class="count">
+    <div class="header-count-inner">
+        <div class="container">
+            <header class="header">
+                <p>StroyMart.<span>kz</span></p>
+            </header>
+            <div class="header-block">
+                <div class="header-bg">
+                    <img src="assets/header-bg.png">
+                </div>
+                <div class="logo-title-count">
+
+                    <h3>Количество</h3>
+
+                    <h4>строящихся
+                        объектов </h4>
+
+                </div>
+            </div>
+        </div>
+        <div style="transform: rotate(-180deg);background: linear-gradient(180deg, #FFFFFF 0.34%, rgba(255, 255, 255, 0) 27.8%); padding: 20px 0;"></div>
+    </div>
+    <div class="container">
+        <div class="count-labels">
+            <div class="count-label--item">
+                <div class="color color-finished">
+                </div>
+                <span>- Завершенные</span>
+            </div>
+            <div class="count-label--item">
+                <div class="color color-progress">
+                </div>
+                <span>- Строящиеся </span>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="container">
+    <div class="pieNums">
+        <div class="pieNum one">
+            <p>Всего</p>
+            <p>700</p>
+        </div>
+        <div class="pieNum two">
+            <p>Завершенные</p>
+            <p>215</p>
+        </div>
+        <div class="pieNum three">
+            <p>Строящиеся</p>
+            <p>485</p>
+        </div>
+    </div>
+    <div class="canvas-div">
+        <canvas id="myChart" style="width: 570px; height: 285px" width="1140" height="285">
+        </canvas>
+
+        <div class="bar-chart-canvas">
+            <canvas id="bar-chart"></canvas>
+        </div>
+    </div>
+    <div class="chart-numbers">
+        <div class="chart-number">
+            <p>2020</p>
+            <span>год</span>
+        </div>
+        <div class="bar-img">
+            <img src="assets/lines.svg">
+        </div>
+        <div class="chart-number">
+            <p>2020</p>
+            <span>год</span>
+        </div>
+        <div class="bar-img">
+            <img src="assets/lines.svg">
+        </div>
+        <div class="chart-number">
+            <p>2020</p>
+            <span>год</span>
+        </div>
+    </div>
+    <div class="objects-block">
+        <h1 class="h1-title count-title" style="color: #000">Строящиеся объекты
+            в разрезе регионов на 2020 год</h1>
+    </div>
+    <div class="progress-block">
+        <div class="progress-title">
+            <div class="pr-title">
+                <p>Регион</p>
+                <p>Строящиеся </p>
+                <p>Завершенные</p>
+                <p>Всего</p>
+            </div>
+            <div class="pr-title">
+                <p>Регион</p>
+                <p>Строящиеся </p>
+                <p>Завершенные</p>
+                <p>Всего</p>
+            </div>
+        </div>
+        <div class="progress-table1" id="pt1">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer class="footer footer-count">
+        <p>Потребность строительного рынка на 2020-2021гг.</p>
+        <div class="line"></div>
+        <p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой техники и
+            технологий)</p>
+    </footer>
+</div>
+
+
+<section class="count">
+    <div class="header-count-inner">
+        <div class="container">
+            <header class="header">
+                <p>StroyMart.<span>kz</span></p>
+            </header>
+            <div class="header-block">
+                <div class="header-bg">
+                    <img src="assets/header-bg.png">
+                </div>
+                <div class="logo-title-count" style="width: 60%;">
+
+                    <h4>Строящиеся объекты
+                        в разрезе регионов на 2021 год</h4>
+
+                </div>
+            </div>
+        </div>
+        <div style="transform: rotate(-180deg);background: linear-gradient(180deg, #FFFFFF 0.34%, rgba(255, 255, 255, 0) 27.8%); padding: 20px 0;"></div>
+
+
+    </div>
+    <div class="container">
+        <div class="progress-block pr-bl2">
+            <div class="progress-title">
+                <div class="pr-title2">
+                    <p>Регион</p>
+                    <p>Строящиеся </p>
+                    <p>Всего</p>
+                </div>
+                <div class="pr-title2">
+                    <p>Регион</p>
+                    <p>Строящиеся </p>
+                    <p>Всего</p>
+                </div>
+            </div>
+        </div>
+        <div class="progress-table1" id="pt2">
+        </div>
+    </div>
+
+    <div class="header-count-inner1">
+        <div class="container">
+            <div class="header-block">
+                <div class="logo-title-count" style="width: 60%;">
+                    <h4>Строящиеся объекты
+                        в разрезе регионов на 2022 год</h4>
+
+                </div>
+            </div>
+        </div>
+        <div style="transform: rotate(-180deg);background: linear-gradient(180deg, #FFFFFF 0.34%, rgba(255, 255, 255, 0) 27.8%); padding: 20px 0;"></div>
+
+
+    </div>
+    <div class="container">
+        <div class="progress-block pr-bl3">
+            <div class="progress-title">
+                <div class="pr-title2">
+                    <p>Регион</p>
+                    <p>Строящиеся </p>
+                    <p>Всего</p>
+                </div>
+                <div class="pr-title2">
+                    <p>Регион</p>
+                    <p>Строящиеся </p>
+                    <p>Всего</p>
+                </div>
+            </div>
+        </div>
+        <div class="progress-table1" id="pt3">
+        </div>
+    </div>
+    <div class="container">
+        <footer class="footer footer-count">
+            <p>Потребность строительного рынка на 2020-2021гг.</p>
+            <div class="line"></div>
+            <p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой техники
+                и технологий)</p>
+        </footer>
+    </div>
+</section>
+
+    <section class="count">
+        <div class="header-chart-inner">
+            <div class="container">
+                <header class="header">
+                    <p>StroyMart.<span>kz</span></p>
+                </header>
+                <div class="header-block">
+                    <div class="header-bg">
+                        <img src="assets/header-bg.svg">
+                    </div>
+                    <div class="logo-title-chart">
+
+                        <h3>Потребность</h3>
+
+                        <h4>в стройметериалах
+                            в разрезе регионов </h4>
+
+                    </div>
+                </div>
+            </div>
+            <div style="transform: rotate(-180deg); background: linear-gradient(180deg, #FFB877 23.96%, #FFC896 48.44%, #FFFFFF 100%);"></div>
+        </div>
+        <div class="container">
+        </div>
+
+        <div class="chart-page-title">
+
+            <div class="chart-round">
+                <h3>1</h3>
+                <p>Трубы, рукава и шланги и их фитинги из пластмасс</p>
+            </div>
+            <div class="chart-img">
+                <img src="assets/chart-ling.svg">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="chart-city-num">
+                <h1>Алматы</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <span>Общий объем</span>
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <span>Общая стоимость</span>
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="chart-grey-bg">
+            <div class="container">
+                <div class="chart-city-num">
+                    <div class="chart-str">
+                        <span>Застройщик</span>
+                        <p>BI Group</p>
+                    </div>
+                    <div class="chart-vol-price">
+                        <div class="chart-vol">
+                            <span>Общий объем</span>
+                            <p>944 354 м3</p>
+                        </div>
+                        <div class="chart-price ">
+                            <span>Общая стоимость</span>
+                            <p>944 354 000 тг</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-city-num2">
+                    <div class="chart-str2 str1">
+                        <span>Телефон</span>
+                        <p>8 777 170 70 70</p>
+                    </div>
+                    <div class="chart-str2 str2">
+                        <span>E-mail</span>
+                        <p>Contact@Bi.group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="container">
+            <div class="chart-wrap">
+                <div class="chart-obj">
+                    <p>Объект <span>1</span></p>
+                    <p>ID 9128389</p>
+                </div>
+                <div class="chart-p">
+                    <p>Строительство многоквартирных жилых домов в микрорайоне "Мадениет" в Алатауском районе города
+                        Алматы, участок №834/2 (без благоустройства и внутриплощадочных инженерных сетей)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-bars-block">
+            <div class="chart-bar-title">
+                <h1>2020</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-bar">
+                <canvas id="chart-bar" width="700" height="150"></canvas>
+                <div class="chart-values" id="chart-values">
+                    <!-- <div class="chart-val">
+                        <p>3500 m3</p>
+                        <p>3 500 000 тг</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="chart-bars-block">
+            <div class="chart-bar-title">
+                <h1>2021</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-bar">
+                <canvas id="chart-bar2" width="700" height="150"></canvas>
+                <div class="chart-values" id="chart-values2">
+                    <!-- <div class="chart-val">
+                        <p>3500 m3</p>
+                        <p>3 500 000 тг</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <footer class="footer footer-count">
+                <p>Потребность строительного рынка на 2020-2021гг.</p>
+                <div class="line"></div>
+                <p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой
+                    техники и технологий)</p>
+            </footer>
+        </div>
+
+    </section>
+
+    <section class="count">
+        <div class="header-chart-inner">
+            <div class="container">
+                <header class="header">
+                    <p>StroyMart.<span>kz</span></p>
+                </header>
+                <div class="header-block">
+                    <div class="header-bg">
+                        <img src="assets/header-bg.svg">
+                    </div>
+                    <div class="logo-title-chart">
+                        <div class="chart-page-title2">
+                            <div class="chart-round2">
+                                <h3>1</h3>
+                                <p>Трубы, рукава и шланги и их фитинги из пластмасс</p>
+                            </div>
+                            <div class="chart-img2">
+                                <img src="assets/chart-l-w.svg">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div style="transform: rotate(-180deg); background: linear-gradient(180deg, #FFB877 23.96%, #FFC896 48.44%, #FFFFFF 100%);"></div>
+        </div>
+        <div class="container">
+        </div>
+
+
+        <div class="container">
+            <div class="chart-city-num3">
+                <h1>Алматы</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <span>Общий объем</span>
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <span>Общая стоимость</span>
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="chart-grey-bg">
+            <div class="container">
+                <div class="chart-city-num">
+                    <div class="chart-str">
+                        <span>Застройщик</span>
+                        <p>BI Group</p>
+                    </div>
+                    <div class="chart-vol-price">
+                        <div class="chart-vol">
+                            <span>Общий объем</span>
+                            <p>944 354 м3</p>
+                        </div>
+                        <div class="chart-price ">
+                            <span>Общая стоимость</span>
+                            <p>944 354 000 тг</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="chart-wrap">
+                <div class="chart-obj">
+                    <p>Объект <span>1</span></p>
+                    <p>ID 9128389</p>
+                </div>
+                <div class="chart-p">
+                    <p>Строительство многоквартирных жилых домов в микрорайоне "Мадениет" в Алатауском районе города
+                        Алматы, участок №834/2 (без благоустройства и внутриплощадочных инженерных сетей)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-bars-block">
+            <div class="chart-bar-title">
+                <h1>2020</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-bar">
+                <canvas id="chart-bar3" width="700" height="150"></canvas>
+                <div class="chart-values" id="chart-values3">
+                    <!-- <div class="chart-val">
+                        <p>3500 m3</p>
+                        <p>3 500 000 тг</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="chart-grey-bg">
+            <div class="container">
+                <div class="chart-city-num">
+                    <div class="chart-str">
+                        <span>Застройщик</span>
+                        <p>BI Group</p>
+                    </div>
+                    <div class="chart-vol-price">
+                        <div class="chart-vol">
+                            <span>Общий объем</span>
+                            <p>944 354 м3</p>
+                        </div>
+                        <div class="chart-price ">
+                            <span>Общая стоимость</span>
+                            <p>944 354 000 тг</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-city-num2">
+                    <div class="chart-str2 str1">
+                        <span>Телефон</span>
+                        <p>8 777 170 70 70</p>
+                    </div>
+                    <div class="chart-str2 str2">
+                        <span>E-mail</span>
+                        <p>Contact@Bi.group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="chart-bars-block">
+            <div class="chart-bar-title">
+                <h1>2021</h1>
+                <div class="chart-vol-price">
+                    <div class="chart-vol">
+                        <p>944 354 м3</p>
+                    </div>
+                    <div class="chart-price ">
+                        <p>944 354 000 тг</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-bar">
+                <canvas id="chart-bar4" width="700" height="150"></canvas>
+                <div class="chart-values" id="chart-values4">
+                    <!-- <div class="chart-val">
+                        <p>3500 m3</p>
+                        <p>3 500 000 тг</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <footer class="footer footer-count">
+                <p>Потребность строительного рынка на 2020-2021гг.</p>
+                <div class="line"></div>
+                <p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой
+                    техники и технологий)</p>
+            </footer>
+        </div>
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+        let table = document.getElementById("pt1")
+        let table1 = document.getElementById("pt2")
+        let table2 = document.getElementById("pt3")
+        let arr = [
+            {
+                city: "Алматы",
+                building: 142,
+                done: 325,
+                sum: 487
+            },
+            {
+                city: "Нур-Султан",
+                building: 242,
+                done: 234,
+                sum: 486
+            },
+            {
+                city: "Шымкент",
+                building: 14,
+                done: 230,
+                sum: 244
+            },
+            {
+                city: "Алматы",
+                building: 142,
+                done: 325,
+                sum: 487
+            },
+            {
+                city: "Нур-Султан",
+                building: 242,
+                done: 234,
+                sum: 486
+            },
+            {
+                city: "Шымкент",
+                building: 14,
+                done: 230,
+                sum: 244
+            }
+
+        ]
+
+
+        function progressDataLoading() {
+            let str = '';
+            arr.forEach(element => {
+                str += '<div class="progress-line">' +
+                    '<p>' + element.city + '</p>' +
+                    '<div class="progress-wrap1">' +
+                    '<p>' + element.building + '</p>' +
+                    '<div class="progress">' +
+                    '<div class="progress-bar" role="progressbar" style="width:' + (element.building / element.sum) * 100 + '%;" aria-valuenow="' + element.building + '" aria-valuemin="0" aria-valuemax="' + element.sum + '"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="progress-wrap2">' +
+                    '<p>' + element.done + '</p>' +
+                    '<div class="progress">' +
+                    '<div class="progress-bar" role="progressbar" style="width:' + (element.done / element.sum) * 100 + '%;" aria-valuenow="' + element.done + '" aria-valuemin="0" aria-valuemax="' + element.sum + '"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<p class="progress-sum">' + element.sum + '</p>' +
+                    '</div>'
+            })
+            table.innerHTML = str
+        }
+
+        function progressDataLoading2() {
+            let str = '';
+            arr.forEach(element => {
+                str += '<div class="progress-line">' +
+                    '<p>' + element.city + '</p>' +
+                    '<div class="progress-wrap3">' +
+                    '<p>' + element.building + '</p>' +
+                    '<div class="progress">' +
+                    '<div class="progress-bar" role="progressbar" style="width:' + (element.building / element.sum) * 100 + '%;" aria-valuenow="' + element.building + '" aria-valuemin="0" aria-valuemax="' + element.sum + '"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<p class="progress-sum">' + element.sum + '</p>' +
+                    '</div>'
+            })
+            table1.innerHTML = str
+        }
+
+        function progressDataLoading3() {
+            let str = '';
+            arr.forEach(element => {
+                str += '<div class="progress-line">' +
+                    '<p>' + element.city + '</p>' +
+                    '<div class="progress-wrap3">' +
+                    '<p>' + element.building + '</p>' +
+                    '<div class="progress">' +
+                    '<div class="progress-bar" role="progressbar" style="width:' + (element.building / element.sum) * 100 + '%;" aria-valuenow="' + element.building + '" aria-valuemin="0" aria-valuemax="' + element.sum + '"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<p class="progress-sum">' + element.sum + '</p>' +
+                    '</div>'
+            })
+
+            table2.innerHTML = str
+        }
+
+        progressDataLoading();
+        progressDataLoading2();
+        progressDataLoading3();
+        new Chart(document.getElementById("chart-bar"), {
+            type: 'bar',
+            data: {
+                labels: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                datasets: [
+                    {
+                        label: "",
+                        backgroundColor: "#FFB877",
+                        data: [3500, 500, 0, 3600, 3100, 600, 1700, 2200, 0, 1000, 1600, 3200],
+
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        barThickness: 30,
+                    }]
+                }
+            },
+        });
+
+        new Chart(document.getElementById("chart-bar2"), {
+            type: 'bar',
+            data: {
+                labels: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                datasets: [
+                    {
+                        label: "",
+                        backgroundColor: "#FFB877",
+                        data: [3500, 500, 0, 3600, 3100, 600, 1700, 2200, 0, 1000, 1600, 3200],
+
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        barThickness: 30,
+                    }]
+                }
+            },
+
+
+        });
+
+        new Chart(document.getElementById("chart-bar3"), {
+            type: 'bar',
+            data: {
+                labels: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                datasets: [
+                    {
+                        label: "Population (millions)",
+                        backgroundColor: "#FFB877",
+                        data: [3500, 500, 0, 3600, 3100, 600, 1700, 2200, 0, 1000, 1600, 3200],
+
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        barThickness: 30,
+                    }]
+                }
+            },
+
+
+        });
+        new Chart(document.getElementById("chart-bar4"), {
+            type: 'bar',
+            data: {
+                labels: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                datasets: [
+                    {
+                        label: "Population (millions)",
+                        backgroundColor: "#FFB877",
+                        data: [3500, 500, 0, 3600, 3100, 600, 1700, 2200, 0, 1000, 1600, 3200],
+
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        barThickness: 30,
+                    }]
+                }
+            },
+
+
+        });
+
+        let val = document.getElementById("chart-values")
+        let val2 = document.getElementById("chart-values2")
+        let val3 = document.getElementById("chart-values3")
+        let val4 = document.getElementById("chart-values4")
+
+        function putVal() {
+            let str = ''
+            for (let i=12; i--;) {
+                str += '<div class="chart-val">' +
+                    '<p>3500 m3</p>' +
+                    '<p>3 500 000 тг</p>' +
+                    '</div>'
+            }
+
+            val.innerHTML = str
+        }
+
+        function putVal2() {
+            let str = ''
+            for (let i=12; i--;) {
+                str += '<div class="chart-val">' +
+                    '<p>3500 m3</p>' +
+                    '<p>3 500 000 тг</p>' +
+                    '</div>'
+            }
+
+            val2.innerHTML = str
+        }
+
+        function putVal3() {
+            let str = ''
+            for (let i=12; i--;) {
+                str += '<div class="chart-val">' +
+                    '<p>3500 m3</p>' +
+                    '<p>3 500 000 тг</p>' +
+                    '</div>'
+            }
+
+            val3.innerHTML = str
+        }
+
+        function putVal4() {
+            let str = ''
+            for (let i=12; i--;) {
+                str += '<div class="chart-val">' +
+                    '<p>3500 m3</p>' +
+                    '<p>3 500 000 тг</p>' +
+                    '</div>'
+            }
+
+            val4.innerHTML = str
+        }
+
+        putVal()
+        putVal2()
+        putVal3()
+        putVal4()
+        let barItems = document.getElementById("bar-items")
+
+        let arrTop = [
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            },
+            {
+                percentage: "25%",
+                text: 'Черепица гибкая двухслойная стандарт-класса на основе стеклохолста, пропитанного окисленным битумом, с цветовой посыпкой из базальта, для кровель с уклоном от 12° и до отрицательных углов, толщиной 6 мм ГОСТ 32806-2014',
+            },
+            {
+                percentage: "25%",
+                text: 'Щебень из плотных горных пород для строительных работ М600, фракция 20-40 мм СТ РК 1284-2004',
+            }
+        ]
+
+
+        function topLoad() {
+            let str = '';
+            for (let i = 0; i < arrTop.length; i++) {
+                if (i === arrTop.length - 1) {
+                    str += '<div class="bar-item">' +
+
+                        '<div class="bar-item--text">' +
+                        '<div class="bar-item-text--inner">' +
+                        '<div class="bar-item-text-left">' +
+                        '<p class="bar-item-top">Топ<span class="bar-number number-' + Number(i + 1) + '">' + Number(i + 1) + '</span></p>' +
+                        '<p>' + arrTop[i].percentage + "от рынка" + '</p>' +
+                        '</div>' +
+                        '<div class="bar-item-text-right">'
+                        + arrTop[i].text +
+                        '</div>' +
+                        '</div>' +
+                        '<footer class="footer footer-top"> <p>Потребность строительного рынка на 2020-2021гг.</p><div class="line"></div><p>Разработано на основании автоматического анализа KENML смет системой GENRO (АО Институт цифровой техники и технологий)</p></footer>' +
+                        '</div>' +
+                        '<div class="bar-line bar-' + Number(i + 1) + '"></div>' +
+
+                        '</div>'
+                    break;
+                }
+                str += '<div class="bar-item">' +
+
+                    '<div class="bar-item--text">' +
+                    '<div class="bar-item-text--inner">' +
+                    '<div class="bar-item-text-left">' +
+                    '<p class="bar-item-top">Топ<span class="bar-number number-' + Number(i + 1) + '">' + Number(i + 1) + '</span></p>' +
+                    '<p>' + arrTop[i].percentage + "от рынка" + '</p>' +
+                    '</div>' +
+                    '<div class="bar-item-text-right">'
+                    + arrTop[i].text +
+                    '</div>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '<div class="bar-line bar-' + Number(i + 1) + '"></div>' +
+
+                    '</div>'
+
+            }
+            barItems.innerHTML = str
+        }
+
+        topLoad()
+        var randomScalingFactor = function () {
+            return Math.round(Math.random() * 100);
+        };
+
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                    backgroundColor: [
+
+                        '#9A9B9C',
+                        '#000000',
+                        '#05C43C'
+                        // window.chartColors.green,
+                        // window.chartColors.blue,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: []
+            },
+            options: {
+                responsive: true,
+                cutoutPercentage: 80
+            }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+        };
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+                labels: ["2021", "2022"],
+                datasets: [
+                    {
+                        label: "Population (millions)",
+                        backgroundColor: ["#9A9B9C", "#9A9B9C",],
+                        data: [510, 215],
+
+                    }
+                ]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: '',
+                        },
+                        gridLines: {
+                            display: false,
+                            drawBorder: false //<- set this
+                        },
+                        ticks: {
+                            fontColor: "#152731",
+                            fontSize: '26',
+                            fontWeight: 700
+                        },
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            display: true,
+                            drawBorder: true //<- set this
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }]
+                }
+            },
+
+
+        });
+    </script>
+
+    <!-- <script src="js/progress.js"></script>
+    <script src="js/bar-chart.js"></script> -->
+    <!-- <script src="js/top.js"></script>  -->
+
+</body>
+</html>

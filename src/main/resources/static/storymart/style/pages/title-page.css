@@ -1,0 +1,124 @@
+.title-page {
+    background: linear-gradient(180deg, #9AB6F0 0%, #6AADF0 48.96%, #F2F8FD 100%);
+  
+}
+.header-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-title {
+    width: 90%;
+    margin-left: auto;
+}
+.header-title-text {
+    color: #152731;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    margin-right: 40px;
+}
+.header-title-date {
+    background: #FFC328;
+    border-radius: 0px 0px 0px 100px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+.header-title-date p:first-child {
+    color: #fff;
+    font-size: 22px;
+   margin-bottom: 0!important;
+}
+.header-title-date p:last-child {
+    margin-top: 5px;
+    color:  #152731;
+    font-size: 18px;
+    margin-bottom: 0!important;
+}
+.title-vector {
+    padding: 250px 0;
+}
+.h1-title {
+    color: #fff;
+    font-size: 72px;
+    width: 50%;
+    line-height: 80px;
+}
+.title-vector p {
+    margin-top: 20px;
+    color: #152731;
+    font-size: 32px;
+    width: 50%;
+    line-height: 40px;
+}
+.vector {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: auto;
+}
+.vector-img {
+    width: 75%;
+    margin-right: 20px;
+}
+.vector-img img {
+    width: 100%;
+}
+.vector-text {
+    transform: rotate(270deg);
+    transform-origin: right bottom;
+    position: absolute;
+    right: 0;
+    bottom: -430px;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    /* margin-right: 20px; */
+}
+.vector-text img {
+    transform: rotate(90deg);
+    margin: 0 200px;
+}
+.vector-text  a {
+    font-weight: 700;
+    font-size: 32px;
+    color: #000;
+}
+.vector-text  p {
+    font-weight: 700;
+    font-size: 32px;
+    color: #3E4348;
+}
+.vector-text span {
+    color: #ffffff;
+}
+.dot {
+    border-radius: 100%;
+    background-color: #fff;
+    margin-right: 5px;
+    margin-left: 5px;
+  
+}
+
+@media screen and (min-width: 1920px) {
+    .header-title-text {
+        font-size: 48px;
+        line-height: 54px;
+    }
+    .header-title-date p {
+        font-size: 30px!important; 
+    }
+    .h1-title {
+        font-size: 90px;
+        line-height: 96px;
+    }
+    .title-vector p {
+        font-size: 42px;
+        line-height: 46px;
+    }
+}
